@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hey Shortie Pie....❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    color: white;
+  }
+
+  .container {
+    text-align: center;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  #yes {
+    background: white;
+    color: #ff4d6d;
+    margin-right: 20px;
+  }
+
+  #no {
+    background: #ff4d6d;
+    color: white;
+    position: absolute;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>You’ve become an aunty… haven’t you? 💖</h1>
+  <button id="yes" onclick="yesClicked()">YES 😍</button>
+  <button id="no">NO 😢</button>
+</div>
+
+<script>
+  /* MUSIC */
+  const audio = new Audio("1.mpeg");
+  audio.loop = true;
+
+  /* NO BUTTON LOGIC */
+  const noBtn = document.getElementById("no");
+  let scale = 1;
+  let speed = 300;
+
+  noBtn.addEventListener("mouseover", escape);
+  noBtn.addEventListener("touchstart", escape);
+
+  function escape() {
+    scale -= 0.1;
+    speed -= 30;
+
+    if (scale < 0.4) scale = 0.4;
+    if (speed < 80) speed = 80;
+
+    const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+
+    noBtn.style.transition = `all ${speed}ms`;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    noBtn.style.transform = `scale(${scale})`;
+  }
+
+  /* YES BUTTON */
+  function yesClicked() {
+    audio.play();
+    document.body.innerHTML = `
+      <h1 style="text-align:center; margin-top:2vh;">
+        
+      Happy 20th Birthday, a female version of me❤️🎉 This is my last essay for you I think...
+20 already… can you believe it? No more “teen” next to your age, but in my heart you’ll always be that crazy, little, shortie, beautiful soul who walked into my life like a ramp walk model and changed it in the best way possible. Watching you grow into this strong, independent, fearless young woman makes me so proud. You’re not just growing older, you’re growing wiser, braver and even more beautiful inside and out.
+We’ve shared the sweetest memories.. the laughter that made our stomachs hurt, the secrets, the late-night talks, the gossips, the pain, problems, the silly fights, the misunderstandings, even the long silence where we didn’t speak single word… yet somehow, nothing could break us. Idk how this could happen but it happened no matter how far we drifted, our bond never disappeared. That’s how I know what we have is real. Not everyone gets a friendship that survives ego, distance and time....but we did.🫶🏼 (Remember, I asked many sorry than you😂 and pampered you more)
+Thank you for being my chaos partner, my comfort human...oppsss you're not a human species right, sorry my bad. Somehow you be my punching bag..hehehe, my pyschopatric, little cannibal and a very naughty girl I ever seen.Thank you for choosing me again and again (you chose me cause no boys can handle your mentel illness  kot...jk😜😜), even after everything. Growing up feels less scary because I know you’re walking through life at the same time as me.
+As you step into your twenties, I hope you chase every dream without fear. It’s okay to feel lost sometimes. It’s okay to fall, to doubt, to cry. Just don’t ever forget how powerful, capable and deeply loved you are❤️. You're a fighter and I knew it well🥰💪🏻. And whenever life feels heavy, remember you don’t have to carry it alone...I’m always here as your irritating non-lovable just a friend zoned boy 😏 No matter the fight, no matter the silence, no matter what.
+You’re not just my best friend. You're something special I think( cause I only being overhypered around you and with you...cause inam inathode thane serum 🤭). 
+Happy Birthday, my girl. Let’s make our twenties unforgettable together. Hope this time we will meet. Let's plan a meet up later❤️🥰<br>
+      and last ah naan ethachum tappa pesi iruntha or unne hurt panni irunthai unne over ah roast panni unne irritate panni irundha I am sincerely not apologizing, podi paal dappa, unakkitte mannipu vere keppanggala  ❤️</h1>
+    `;
+  }
+
+  /* FLOATING HEARTS */
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+</script>
+
+</body>
+</html>
